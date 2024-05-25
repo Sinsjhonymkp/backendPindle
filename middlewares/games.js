@@ -4,16 +4,24 @@
 const games = require("../models/game");
 
 const findAllGames = async (req, res, next) => {
-    console.log("GET /games");
+    // Поиск всех игр в проекте по заданной категории
+    if (req.query["categories.name"]) {
+        req.gamesArray = await games.findGameByCategory(req.query["categories.name"]);
+        next();
+        return;
+    }
+    // Поиск всех игр в проекте
     req.gamesArray = await games
         .find({})
         .populate("categories")
         .populate({
             path: "users",
-            select: "-password"
-        });
+            select: "-password" // Исключим данные о паролях пользователей
+        })
     next();
 };
+
+
 const createGame = async (req, res, next) => {
     console.log("POST /games");
     try {

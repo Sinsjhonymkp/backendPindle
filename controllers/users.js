@@ -24,5 +24,10 @@ const sendUserDeleted = (req, res) => {
     // Отправляем на клиент найденный и удалённый элемент из базы данных
     res.end(JSON.stringify(req.users));
 };
+
+const sendMe = (req, res) => {
+    res.setHeader("Content-Type", "application/json");
+    res.end(JSON.stringify(req.user));
+};
 // Экспортируем контроллер
-module.exports = { sendAllUsers, sendUserCreated, sendUsersById, sendUserUpdated, sendUserDeleted };
+module.exports = { sendAllUsers, sendMe, sendUserCreated, sendUsersById, sendUserUpdated, sendUserDeleted };
