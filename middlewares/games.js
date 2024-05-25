@@ -69,6 +69,10 @@ const deleteGame = async (req, res, next) => {
     }
 };
 const checkEmptyFields = async (req, res, next) => {
+    if (req.isVoteRequest) {
+        next();
+        return;
+    }
     if (
         !req.body.title ||
         !req.body.description ||
@@ -76,25 +80,27 @@ const checkEmptyFields = async (req, res, next) => {
         !req.body.link ||
         !req.body.developer
     ) {
-        // Если какое-то из полей отсутствует, то не будем обрабатывать запрос дальше,
-        // а ответим кодом 400 — данные неверны.
         res.setHeader("Content-Type", "application/json");
         res.status(400).send(JSON.stringify({ message: "Заполни все поля" }));
     } else {
-        // Если всё в порядке, то передадим управление следующим миддлварам
         next();
     }
 };
 const checkIfCategoriesAvaliable = async (req, res, next) => {
-    if (!req.body.categories || req.body.categories === 0) {
-        res.setHeader("Content-Type", "application/json");
-        res.statustatus(400).send(JSON.stringify({ message: "Выберите хотя бы одну категорию" }));
-    }
-    else {
+    if (req.isVoteRequest) {
         next();
-
+        return;
+    }
+    if (!req.body.categories || req.body.categories.length === 0) {
+        res.setHeader("Content-Type", "application/json");
+        res
+            .status(400)
+            .send(JSON.stringify({ message: "Выбери хотя бы одну категорию" }));
+    } else {
+        next();
     }
 };
+
 const checkIfUsersAreSafe = async (req, res, next) => {
     // Проверим, есть ли users в теле запроса
     if (!req.body.users) {
