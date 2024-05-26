@@ -183,4 +183,48 @@
     }
   ],
   "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665219c708289305b206fd4d"
+  },
+  "title": "Робокоп",
+  "description": "После гибели одного из лучших полицейских врачи-экспериментаторы создают из него неуязвимого киборга Робокопа, который в одиночку борется с бандой преступников.",
+  "developer": "Антон",
+  "image": "https://upload.wikimedia.org/wikipedia/ru/0/0a/Robocop_03.jpg",
+  "link": "https://upload.wikimedia.org/wikipedia/ru/0/0a/Robocop_03.jpg",
+  "users": [
+    {
+      "$oid": "6606b19ef99cd7a67132aaf6"
+    }
+  ],
+  "categories": [
+    {
+      "$oid": "65fd4ae88dfd769ce3133282"
+    },
+    {
+      "$oid": "65fd4eefee6f92e3d791d0d1"
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665254a5c3e74f8f4d1004eb"
+  },
+  "title": "12121",
+  "description": "212121",
+  "developer": "2121211",
+  "image": "https://i.ytimg.com/an_webp/n8nwVB6nZ2I/mqdefault_6s.webp?du=3000&sqp=CK7d4rEG&rs=AOn4CLCEwOwe6JJgwR8siH9tmvl9sn-MHQ",
+  "link": "https://html.ru",
+  "users": [],
+  "categories": [
+    {
+      "$oid": "65fd4ae18dfd769ce313327d"
+    },
+    {
+      "$oid": "65fd4ae88dfd769ce3133282"
+    }
+  ],
+  "__v": 0
 }]
